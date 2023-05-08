@@ -1,6 +1,6 @@
-package com.example.okrprojectfinal
+package com.example.okrprojectfinal.data.model
 
-data class MovieResponse(
+data class Movie(
     val adult: Boolean,
     val backdrop_path: String,
     val genre_ids: List<Int>,
