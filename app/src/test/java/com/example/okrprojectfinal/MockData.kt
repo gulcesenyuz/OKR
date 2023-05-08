@@ -20,5 +20,7 @@ object MockData {
             overview = null
         )
 
-    fun mockMoviesList() = listOf(mockMovie())
+    fun mockMovieList() = listOf(mockMovie())
+    fun mockMoviesList() = listOf(mockMovie(), mockMovie(), mockMovie())
+
 }
