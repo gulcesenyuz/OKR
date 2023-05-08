@@ -1,10 +1,11 @@
 package com.example.okrprojectfinal.ui.home
 
 import android.os.Bundle
-import android.widget.Toast
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.okrprojectfinal.data.model.response.NetworkResult
 import com.example.okrprojectfinal.databinding.ActivityMainBinding
@@ -26,25 +27,24 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        prepareRecyclerView()
+        mainViewModel.movieResponse.observe(this, Observer {
+            when(it){
+                is NetworkResult.Loading->{
+                   // binding.progressbar.isVisible = it.isLoading
 
-        mainViewModel.movieResponse.observe(this) {
-            when (it) {
-                is NetworkResult.Loading -> {
-                    binding.progressbar.isVisible = it.isLoading
                 }
-
-                is NetworkResult.Failure -> {
-                    Toast.makeText(this, it.errorMessage, Toast.LENGTH_SHORT).show()
-                    binding.progressbar.isVisible = false
-                }
-
                 is NetworkResult.Success -> {
-                    movieAdapter.updateMovies(it.data)
+                    Log.d("CHEEZ", it.data.toString())
+                    prepareRecyclerView()
+                    it.data?.let { it1 -> movieAdapter.updateMovies(it1) }
                     binding.progressbar.isVisible = false
+                }
+                is NetworkResult.Error -> {
+                    binding.progressbar.isVisible = false
+
                 }
             }
-        }
+        })
     }
 
     private fun prepareRecyclerView() {

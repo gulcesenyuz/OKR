@@ -1,18 +1,25 @@
 package com.example.okrprojectfinal.repository
 
+import com.example.okrprojectfinal.data.model.Movie
+import com.example.okrprojectfinal.data.model.response.MovieResponse
 import com.example.okrprojectfinal.data.model.response.NetworkResult
 import com.example.okrprojectfinal.data.service.MovieApi
 import com.example.okrprojectfinal.data.utils.Credentials.API_KEY
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class MovieRepository @Inject constructor(private val apiService: MovieApi) {
-    suspend fun getPopularMovies() = flow {
-        emit(NetworkResult.Loading(true))
+    suspend fun getPopularMovies(): NetworkResult<MovieResponse> {
         val response = apiService.getPopularMovies(API_KEY)
-        emit(NetworkResult.Success(response.results))
-    }.catch { e ->
-        emit(NetworkResult.Failure(e.message ?: "Unknown Error"))
+        return if (response.isSuccessful) {
+            val responseBody = response.body()
+            if (responseBody != null) {
+                NetworkResult.Success(responseBody)
+            } else {
+                NetworkResult.Error("Something went wrong")
+            }
+        } else {
+            NetworkResult.Error("Something went wrong")
+        }
     }
+
 }

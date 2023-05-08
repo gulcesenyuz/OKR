@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.okrprojectfinal.data.model.Movie
+import com.example.okrprojectfinal.data.model.response.MovieResponse
 import com.example.okrprojectfinal.data.utils.Credentials.IMG_BASE
 import com.example.okrprojectfinal.databinding.MovieLayoutBinding
 import javax.inject.Inject
@@ -14,9 +15,9 @@ class MovieAdapter @Inject constructor() : RecyclerView.Adapter<MovieAdapter.Mov
     var movies = mutableListOf<Movie>()
     private var clickInterface: ClickInterface<Movie>? = null
 
-    fun updateMovies(movies: List<Movie>) {
-        this.movies = movies.toMutableList()
-        notifyItemRangeInserted(0, movies.size)
+    fun updateMovies(movies: MovieResponse) {
+        this.movies = movies.results.toMutableList()
+        notifyItemRangeInserted(0, movies.results.size)
     }
 
 

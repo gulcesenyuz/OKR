@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
 }
 
 
@@ -47,21 +48,16 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-
-
     //coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
-
     //hilt
     implementation "com.google.dagger:hilt-android:2.44"
     kapt "com.google.dagger:hilt-compiler:2.44"
-
     // retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation "com.squareup.okhttp3:okhttp:4.7.2"
     implementation "com.squareup.okhttp3:logging-interceptor:4.7.2"
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-
     //ktx
     implementation "androidx.activity:activity-ktx:1.4.0"
     implementation "androidx.fragment:fragment-ktx:1.4.1"
@@ -74,9 +70,16 @@ dependencies {
     //room
     implementation "androidx.room:room-runtime:2.4.2"
     kapt "androidx.room:room-compiler:2.4.2"
-
-    // optional - Kotlin Extensions and Coroutines support for Room
     implementation "androidx.room:room-ktx:2.4.2"
+
+    //Test
+    testImplementation 'org.mockito:mockito-core:3.10.0'
+    androidTestImplementation 'org.mockito:mockito-android:3.10.0'
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.0'
+    testImplementation 'org.mockito:mockito-inline:2.13.0'
+
 }
 
 kapt {
