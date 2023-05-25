@@ -20,7 +20,6 @@ class MovieAdapter @Inject constructor() : RecyclerView.Adapter<MovieAdapter.Mov
         notifyItemRangeInserted(0, movies.results.size)
     }
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val binding =
             MovieLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)

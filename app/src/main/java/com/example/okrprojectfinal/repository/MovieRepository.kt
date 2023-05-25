@@ -22,4 +22,18 @@ class MovieRepository @Inject constructor(private val apiService: MovieApi) {
         }
     }
 
+    suspend fun searchMovie(query: String, pageNumber: Int): NetworkResult<MovieResponse> {
+        val response = apiService.searchMovie(API_KEY, query, pageNumber)
+        return if (response.isSuccessful) {
+            val responseBody = response.body()
+            if (responseBody != null) {
+                NetworkResult.Success(responseBody)
+            } else {
+                NetworkResult.Error("Something went wrong")
+            }
+        } else {
+            NetworkResult.Error("Something went wrong")
+        }
+    }
+
 }

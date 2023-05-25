@@ -1,3 +1,6 @@
+
 <resources>
     <string name="app_name">OkrProjectFinal</string>
+    <string name="title_popular">Popular Movies</string>
+    <string name="title_search">Search a Movie</string>
 </resources>
