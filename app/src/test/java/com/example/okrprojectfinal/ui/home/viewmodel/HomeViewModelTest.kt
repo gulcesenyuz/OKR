@@ -7,6 +7,7 @@ import com.example.okrprojectfinal.data.model.response.MovieResponse
 import com.example.okrprojectfinal.data.model.response.NetworkResult
 import com.example.okrprojectfinal.repository.MovieRepository
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
@@ -63,7 +64,6 @@ class HomeViewModelTest {
         Assert.assertEquals(true, movieResponse is NetworkResult.Error<*>)
         Assert.assertEquals(null, movieResponse?.data?.results)
     }
-
     @After
     fun tearsDown(){
         Dispatchers.resetMain()
