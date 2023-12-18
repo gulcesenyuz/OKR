@@ -1,5 +1,6 @@
 package com.example.okrprojectfinal.repository
 
+import android.widget.Toast
 import com.example.okrprojectfinal.data.model.Movie
 import com.example.okrprojectfinal.data.model.response.MovieResponse
 import com.example.okrprojectfinal.data.model.response.NetworkResult
@@ -35,5 +36,6 @@ class MovieRepository @Inject constructor(private val apiService: MovieApi) {
             NetworkResult.Error("Something went wrong")
         }
     }
+
 
 }

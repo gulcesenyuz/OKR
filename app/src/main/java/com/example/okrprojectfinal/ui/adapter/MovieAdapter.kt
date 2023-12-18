@@ -29,11 +29,11 @@ class MovieAdapter @Inject constructor() : RecyclerView.Adapter<MovieAdapter.Mov
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val movie = movies[position]
         holder.view.tvTitle.text = movie.title
-        holder.view.rvYear.text = "Year : ${movie.release_date}"
-        holder.view.rvRating.text = "Rating : ${movie.vote_average}"
+        holder.view.rvYear.text = "Year : ${movie.releaseDate}"
+        holder.view.rvRating.text = "Rating : ${movie.voteAverage}"
         Glide
             .with(holder.view.imgMovieImage.context)
-            .load(IMG_BASE + movie.poster_path)
+            .load(IMG_BASE + movie.posterPath)
             .centerCrop()
             .into(holder.view.imgMovieImage)
         holder.view.movieCard.setOnClickListener {

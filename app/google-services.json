@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "679944747036",
+    "project_id": "firestoreapp-7488d",
+    "storage_bucket": "firestoreapp-7488d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:679944747036:android:08a3957effbbbb66e947d9",
+        "android_client_info": {
+          "package_name": "com.example.okrprojectfinal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDC8IS_e_PrluxGrh0x_tkzrI7LKPRQrzc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

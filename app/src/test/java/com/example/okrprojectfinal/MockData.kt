@@ -6,17 +6,17 @@ object MockData {
     private fun mockMovie() =
         Movie(
             adult = true,
-            backdrop_path = null,
+            backdropPath = null,
             id = 419704,
             title = "Ad Astra",
-            original_language = null,
-            release_date = "2019-09-17",
-            vote_average = 6.0,
-            original_title = null,
+            originalLanguage = null,
+            releaseDate = "2019-09-17",
+            voteAverage = 6.0,
+            originalTitle = null,
             popularity = null,
-            poster_path = null,
+            posterPath = null,
             video = null,
-            vote_count = null,
+            voteCount = null,
             overview = null
         )
 

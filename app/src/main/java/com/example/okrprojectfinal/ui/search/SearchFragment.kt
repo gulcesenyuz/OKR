@@ -1,7 +1,6 @@
 package com.example.okrprojectfinal.ui.search
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,7 +34,6 @@ class SearchFragment : Fragment() {
         val view = binding.root
         binding.progressbar.visibility = View.GONE
         binding.btnSearch.setOnClickListener {
-            Log.d("TEST", " binding.btnSearch. SearchScreenFragment")
             searchMovie(binding.etSearch.text.toString(), 1)
         }
         searchViewModel.movieResponse.observe(viewLifecycleOwner, Observer {
@@ -44,7 +42,6 @@ class SearchFragment : Fragment() {
                     binding.progressbar.isVisible = true
                 }
                 is NetworkResult.Success -> {
-                    Log.d("CHEEZ", it.data.toString())
                     prepareRecyclerView()
                     it.data?.let {
                             it1 -> movieAdapter.updateMovies(it1)

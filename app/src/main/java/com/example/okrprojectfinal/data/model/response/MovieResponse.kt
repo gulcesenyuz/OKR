@@ -4,5 +4,6 @@ import com.example.okrprojectfinal.data.model.Movie
 
 
 data class MovieResponse(
-    val results: List<Movie>,
+    var results: List<Movie>,
 )
+

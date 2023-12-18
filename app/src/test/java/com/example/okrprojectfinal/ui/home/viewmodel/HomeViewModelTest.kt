@@ -7,7 +7,6 @@ import com.example.okrprojectfinal.data.model.response.MovieResponse
 import com.example.okrprojectfinal.data.model.response.NetworkResult
 import com.example.okrprojectfinal.repository.MovieRepository
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
@@ -32,6 +31,7 @@ class HomeViewModelTest {
     @Mock
     lateinit var repository: MovieRepository
 
+    // executes each task synchronously
     @get:Rule
     val instantTaskExecutorRule= InstantTaskExecutorRule()
     @get:Rule

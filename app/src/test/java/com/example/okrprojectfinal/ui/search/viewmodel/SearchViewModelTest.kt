@@ -6,7 +6,6 @@ import com.example.okrprojectfinal.TestCoroutineRule
 import com.example.okrprojectfinal.data.model.response.MovieResponse
 import com.example.okrprojectfinal.data.model.response.NetworkResult
 import com.example.okrprojectfinal.repository.MovieRepository
-import com.example.okrprojectfinal.ui.home.viewmodel.HomeViewModel
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.*
@@ -23,6 +22,7 @@ class SearchViewModelTest{
     private val testDispatcher = StandardTestDispatcher()
     @Mock
     lateinit var repository: MovieRepository
+    // executes each task synchronously
     @get:Rule
     val instantTaskExecutorRule= InstantTaskExecutorRule()
     @get:Rule
