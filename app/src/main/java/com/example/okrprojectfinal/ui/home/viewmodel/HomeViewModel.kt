@@ -10,6 +10,7 @@ import com.example.okrprojectfinal.data.model.response.MovieResponse
 import com.example.okrprojectfinal.data.model.response.NetworkResult
 import com.example.okrprojectfinal.repository.MovieRepository
 import com.example.okrprojectfinal.ui.adapter.MovieAdapter
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -102,5 +103,18 @@ class HomeViewModel @Inject constructor(private val repository: MovieRepository)
          })*/
     }
 
+    fun deleteADocument(id: String) {
+        // val docReference = db.collection("popular_movies").document(id) -> id of a movie that will be deleted
+        val docReference = db.collection("popular_movies").document("Dragon Kingdom")
+        docReference.delete()
+    }
+
+    fun deleteAFieldInDocument(){
+        val docReference = db.collection("popular_movies").document("Dragon Kingdom")
+        val deleteField = HashMap<String, Any>()
+        //write the field that will be deleted
+        deleteField["popularity"] = FieldValue.delete()
+        docReference.update(deleteField)
+    }
 
 }
